@@ -1,4 +1,7 @@
 using Api.Dtos;
+using Api.Dtos.Requests;
+using Api.Dtos.Responses;
+using Application.Commands.Authenticate;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,5 +25,11 @@ namespace Api.Controllers
     {
       return Ok(WsResponse<string?>.BuildOkResponse(null));
     }
+
+    [HttpPost]
+    [ProducesResponseType(typeof(WsResponse<AuthenticateResponse>), 200)]
+    public async Task<IActionResult> Authenticate([FromBody] AuthenticateRequest request) =>
+      Ok(await _mediator.Send(new AuthenticateCommand(request.Email, request.Password)));
+
   }
 }

@@ -27,6 +27,11 @@ namespace Api.Dtos
       return new WsResponse<string>(false, ResponseCodeCatalogs.InternalServerError, message, null);
     }
 
+    public static WsResponse<T> BuildBadResponse(T data)
+    {
+      return new WsResponse<T>(false, ResponseCodeCatalogs.BadRequest, ResponseMessageCatalogs.BadRequest, data);
+    }
+
     public static WsResponse<string> BuildNotFoundResponse(string message)
     {
       return new WsResponse<string>(false, ResponseCodeCatalogs.NotFound, message, null);
