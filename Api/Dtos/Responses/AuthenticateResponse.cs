@@ -1,4 +1,4 @@
 namespace Api.Dtos.Responses
 {
-  public record AuthenticateResponse(string AccessToken);
+  public record AuthenticateResponse(string AccessToken, ClientDto Client);
 }

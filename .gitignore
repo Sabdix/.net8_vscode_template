@@ -1,0 +1,85 @@
+# .NET Core & .NET 8
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.csproj.user
+*.rsuser
+.vscode/*
+.vscode/*.*
+
+# Build Folders
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+*.symbols.nupkg
+*.nuspec
+.nuget/
+packages/
+!packages/build/
+!packages/repositories.config
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio
+.vs/
+.vscode/
+.vsconfig
+.vshistory/
+.vs/slnx.sqlite
+.vs/ProjectSettings.json
+
+# Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.DS_Store
+*.log
+*.vspscc
+*.vssscc
+[Tt]humbs.db
+UserSecrets/
+.vscode/settings.json
+
+# Resharper files
+_ReSharper*/
+*.suo
+*.sln.docstates
+
+# Dependency directories
+node_modules/
+wwwroot/lib/
+
+# Application Insights
+ApplicationInsights.config
+ApplicationInsights.json
+
+# Coverage Reports
+coverage/
+*.coverage
+*.coveragexml
+*.testResults
+
+# Logs
+*.log
+logs/
+
+# Publish
+.publish/
+.publishProfiles/
+
+# Tools
+.dotnet/tools/
+
+# Temporary files
+~$*
+*.tmp
+*.bak
+*.swp

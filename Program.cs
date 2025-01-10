@@ -1,10 +1,17 @@
 
 using Api.Middlewares;
 using FluentValidation;
+using Infrastructure.Contexts;
+using Infrastructure.Repositories;
 using MediatR;
 using MediatR.Extensions.FluentValidation.AspNetCore;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Register the DbContext with a connection string from appsettings.json
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add this to configure Kestrel
 builder.WebHost.ConfigureKestrel(serverOptions =>
@@ -14,6 +21,8 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
 });
 
 // Add services to the container.
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
